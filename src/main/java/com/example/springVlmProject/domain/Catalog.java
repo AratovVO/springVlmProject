@@ -1,9 +1,10 @@
-package com.example.springVlmProject.model;
+package com.example.springVlmProject.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
@@ -15,6 +16,9 @@ import java.util.List;
 @AllArgsConstructor
 public class Catalog extends AbstractEntity{
 
+    @Column(name = "title")
     private String title;
+    @Transient
+    @Column(name = "equipment_list")
     private List<Equipment> equipmentList;
 }

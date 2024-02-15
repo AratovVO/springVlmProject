@@ -1,21 +1,18 @@
 package com.example.springVlmProject.services;
 
-import com.example.springVlmProject.model.Catalog;
-import com.example.springVlmProject.model.Equipment;
-import com.example.springVlmProject.repository.CatalogRepo;
+import com.example.springVlmProject.domain.Catalog;
+import com.example.springVlmProject.domain.Equipment;
+import com.example.springVlmProject.repository.CatalogRepository;
 import jakarta.persistence.EntityNotFoundException;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Service
-public class CatalogService {
-    CatalogRepo repository;
+public class CatalogService{
+    private final CatalogRepository repository;
 
-    public CatalogService(CatalogRepo repository) {
+    public CatalogService(CatalogRepository repository) {
         this.repository = repository;
     }
 

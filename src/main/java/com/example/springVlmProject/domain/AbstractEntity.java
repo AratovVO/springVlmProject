@@ -1,11 +1,7 @@
-package com.example.springVlmProject.model;
+package com.example.springVlmProject.domain;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.experimental.FieldNameConstants;
 
 import java.time.LocalDateTime;
 
@@ -18,4 +14,12 @@ public abstract class AbstractEntity {
     Long id;
     LocalDateTime created;
     LocalDateTime updated;
+    @PreUpdate
+    public void preUpdate() {
+        updated = LocalDateTime.now();
+    }
+    @PrePersist
+    public void prePersist() {
+        created = LocalDateTime.now();
+    }
 }
