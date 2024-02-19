@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 
 public class SpringVlmProjectApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(SpringVlmProjectApplication.class, args);
 	}

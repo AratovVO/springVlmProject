@@ -16,9 +16,18 @@ public class CatalogController extends AbstractController<Catalog>{
         super(repo);
         this.service = service;
     }
-    @GetMapping("/equipments/catalogId")
+    @GetMapping("/equipments")
     public List<Equipment> getEquipments (@RequestParam Long id){
         return service.getEquipments(id);
+    }
+
+//    @GetMapping
+//    public Equipment getEquipmentByInvNumber (){
+//        return null;
+//    }
+    @PostMapping("/equipments/{id}")
+    public List<Equipment> addEquipmentToCatalog(@PathVariable Long id, @RequestBody Equipment equipment){
+        return service.addEquipmentToCatalog(id, equipment);
     }
 
     @Override

@@ -1,8 +1,7 @@
 package com.example.springVlmProject.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Transient;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +17,10 @@ public class Catalog extends AbstractEntity{
 
     @Column(name = "title")
     private String title;
-    @Transient
+
     @Column(name = "equipment_list")
+    @OneToMany(mappedBy = "catalogId")
+    @JsonIgnore
     private List<Equipment> equipmentList;
+
 }

@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 //@FieldNameConstants
 public abstract class AbstractEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     Long id;
     LocalDateTime created;
     LocalDateTime updated;
