@@ -18,6 +18,7 @@ public class EquipmentController extends AbstractController<Equipment> {
         this.equipmentService = equipmentService;
     }
 
+
 //    @Override
 //    public Equipment createEntity(Equipment entity) {
 //        entity.setCatalogId(null);

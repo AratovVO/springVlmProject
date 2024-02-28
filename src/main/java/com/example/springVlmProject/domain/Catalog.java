@@ -15,12 +15,11 @@ import java.util.List;
 @AllArgsConstructor
 public class Catalog extends AbstractEntity{
 
-    @Column(name = "title")
     private String title;
 
-    @Column(name = "equipment_list")
-    @OneToMany(mappedBy = "catalogId")
+
+    @OneToMany(mappedBy = "catalogId", cascade = CascadeType.PERSIST)
     @JsonIgnore
-    private List<Equipment> equipmentList;
+    private List<Equipment> equipments;
 
 }

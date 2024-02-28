@@ -31,7 +31,7 @@ public class AbstractController<E> {
         return repository.save(updatableEntity);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteEntityById(@PathVariable Long id) {
         repository.deleteById(id);
     }

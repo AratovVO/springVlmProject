@@ -5,28 +5,31 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+import java.util.List;
+
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class Equipment extends AbstractEntity {
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "inventory_number")
+
     private Integer inventoryNumber;
 
-    @Column(name = "mfr_number")
+
     private Integer mfrNumber;
 
 
-//    @Column(name = "certificate")
-    @OneToOne
-    @JoinColumn(name = "certificate_id", referencedColumnName = "id")
+
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Certificate certificate;
 
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "catalog_id")
     private Catalog catalogId;
+
 }

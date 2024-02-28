@@ -3,24 +3,25 @@ package com.example.springVlmProject.services;
 import com.example.springVlmProject.domain.Catalog;
 import com.example.springVlmProject.domain.Equipment;
 import com.example.springVlmProject.repository.CatalogRepository;
+import com.example.springVlmProject.repository.EquipmentRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
 @Service
 public class CatalogService {
     private final CatalogRepository repository;
+    private final EquipmentRepository equipmentRepository;
 
-    public CatalogService(CatalogRepository repository) {
+    public CatalogService(CatalogRepository repository, EquipmentRepository equipmentRepository) {
         this.repository = repository;
+        this.equipmentRepository = equipmentRepository;
     }
 
     public List<Equipment> getEquipments(Long id) {
         Catalog catalog = getCatalog(id);
-        return catalog.getEquipmentList();
+        return catalog.getEquipments();
     }
 
     private Catalog getCatalog(Long id) {
@@ -31,11 +32,12 @@ public class CatalogService {
 //        Catalog catalog = getCatalog(id);
 //
 //   }
-    public List<Equipment> addEquipmentToCatalog(Long id, Equipment equipment){
+    public List<Equipment> addEquipmentToCatalog(Long id, Equipment equipment) {
         Catalog catalog = getCatalog(id);
-        catalog.getEquipmentList().add(equipment);
-        return catalog.getEquipmentList();
+        catalog.getEquipments().add(equipment);
+        return catalog.getEquipments();
     }
+
 
 
 }

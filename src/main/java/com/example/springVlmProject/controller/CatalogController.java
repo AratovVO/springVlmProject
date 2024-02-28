@@ -25,7 +25,7 @@ public class CatalogController extends AbstractController<Catalog>{
 //    public Equipment getEquipmentByInvNumber (){
 //        return null;
 //    }
-    @PostMapping("/equipments/{id}")
+    @PostMapping("/{id}/equipments")
     public List<Equipment> addEquipmentToCatalog(@PathVariable Long id, @RequestBody Equipment equipment){
         return service.addEquipmentToCatalog(id, equipment);
     }
@@ -33,6 +33,6 @@ public class CatalogController extends AbstractController<Catalog>{
     @Override
     public void deleteEntityById(Long id) {
         super.deleteEntityById(id);
-        System.out.println("Каталог с id = " + id + " был удален");
     }
+
 }

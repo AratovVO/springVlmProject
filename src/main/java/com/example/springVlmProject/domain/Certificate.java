@@ -9,13 +9,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class Certificate extends AbstractEntity{
-    @Column(name = "number")
+
     private String number; // надо будет валидировать
 
     @Column(name = "certification_start_date")
@@ -24,7 +25,8 @@ public class Certificate extends AbstractEntity{
     @Column(name = "certification_end_date")
     private LocalDateTime certEndDate;
 
-    @OneToOne(mappedBy = "certificate")
-    private Equipment equipmentId;
+
+    private Long equipmentId;
+
 
 }
